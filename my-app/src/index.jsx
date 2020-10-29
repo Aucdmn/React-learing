@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 import './index.css';
 
 // 计时器
@@ -178,23 +178,57 @@ import './index.css';
 // );
 
 // 数字列表
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) => 
-    <li key = {number.toString()}>
-      {number}
-    </li>
-  );
-  return (
-    <ul>{listItems}</ul>
-  );
+// function NumberList(props) {
+//   const numbers = props.numbers;
+//   const listItems = numbers.map((number) => 
+//     <li key = {number.toString()}>
+//       {number}
+//     </li>
+//   );
+//   return (
+//     <ul>{listItems}</ul>
+//   );
+// }
+
+// const numbers = [2, 4, 6, 8, 10];
+// ReactDOM.render(
+//   <NumberList numbers={numbers} />,
+//   document.getElementById("root")
+// );
+
+// 测试 state + 运算符
+
+class Test extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {dStatus: false};
+    // this.state = this.state.bind(this)
+    // const dStatus = this.state.dStatus;
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange = () => {
+    this.setState({
+      dStatus: !this.dStatus,
+    })
+    alert("changed");
+  }
+
+  handleAlert = () => {
+    alert("666");
+  }
+
+  render() {
+    return (
+      <div className = "right">
+        <button onClick = {this.handleChange}>{this.dStatus ? "false" : "true"}</button>
+      </div>
+    )
+  }
 }
 
-const numbers = [2, 4, 6, 8, 10];
 ReactDOM.render(
-  <NumberList numbers={numbers} />,
+  <Test />,
   document.getElementById("root")
 );
-
-
 
