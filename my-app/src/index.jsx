@@ -196,39 +196,4 @@ import './index.css';
 //   document.getElementById("root")
 // );
 
-// 测试 state + 运算符
-
-class Test extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {dStatus: false};
-    // this.state = this.state.bind(this)
-    // const dStatus = this.state.dStatus;
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange = () => {
-    this.setState({
-      dStatus: !this.dStatus,
-    })
-    alert("changed");
-  }
-
-  handleAlert = () => {
-    alert("666");
-  }
-
-  render() {
-    return (
-      <div className = "right">
-        <button onClick = {this.handleChange}>{this.dStatus ? "false" : "true"}</button>
-      </div>
-    )
-  }
-}
-
-ReactDOM.render(
-  <Test />,
-  document.getElementById("root")
-);
-
+s
